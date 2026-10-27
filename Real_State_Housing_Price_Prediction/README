@@ -112,7 +112,6 @@ The tuned Ridge model performed slightly better than the other evaluated models,
 - The dataset's target values are capped at $500,001, which may affect predictions for higher-value houses.
 
 
-
 ## Conclusion
 
 This project explored California house value prediction using OLS, Ridge, and Lasso regression models. Data preprocessing, interaction feature engineering, categorical encoding, feature scaling, and hyperparameter tuning were performed to improve model evaluation.
