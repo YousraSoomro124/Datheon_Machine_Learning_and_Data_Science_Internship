@@ -1,1 +1,122 @@
+# California Housing Price Prediction
 
+## Overview
+
+This project uses machine learning regression techniques to predict median house values in California based on housing and demographic features. It compares Ordinary Least Squares (OLS), Ridge Regression, and Lasso Regression using standard regression evaluation metrics.
+
+## Objectives
+
+- Explore and analyze the California housing dataset.
+- Handle missing values in the dataset.
+- Analyze feature correlations using a correlation heatmap.
+- Create an interaction feature to capture relationships between variables.
+- Encode categorical features and standardize input features.
+- Train and compare OLS, Ridge, and Lasso regression models.
+- Tune Ridge and Lasso regularization parameters using GridSearchCV.
+- Evaluate model performance using RMSE, MAE, and R².
+- Visualize predictions and residuals.
+
+## Dataset
+
+The project uses the California housing dataset containing housing, population, location, and income-related information.
+
+**Target variable:** `median_house_value`
+
+**Features include:**
+
+- Longitude and latitude
+- Housing median age
+- Total rooms and total bedrooms
+- Population and households
+- Median income
+- Ocean proximity
+
+The dataset contains 20,640 rows and 10 columns. The `total_bedrooms` column contains missing values, which are handled during preprocessing.
+
+## Technologies Used
+
+- Python
+- Pandas and NumPy
+- Matplotlib and Seaborn
+- Scikit-learn
+- Jupyter Notebook
+
+## Methodology
+
+### 1. Data Exploration
+
+Inspected the dataset structure, feature types, missing values, and numerical correlations.
+
+### 2. Data Preprocessing
+
+- Split the data into training and testing sets.
+- Imputed missing values using the median.
+- Created an interaction feature between median income and housing median age.
+- &#x20;Encode `ocean_proximity`.
+- Standardized input features.
+
+### 3. Model Training
+
+Trained and compared three regression models:
+
+- Ordinary Least Squares (OLS)
+- Ridge Regression (L2 regularization)
+- Lasso Regression (L1 regularization)
+
+### 4. Hyperparameter Tuning
+
+Used GridSearchCV with five-fold cross-validation to select the best alpha from the tested values for Ridge and Lasso.
+
+### 5. Evaluation and Visualization
+
+Evaluated the models using:
+
+- Root Mean Squared Error (RMSE)
+- Mean Absolute Error (MAE)
+- R² Score
+
+Created visualizations to examine actual versus predicted house values, residual patterns, and residual distribution.
+
+## Results
+
+### Initial Model Comparison
+
+| Model |       RMSE |        MAE | R² Score |
+| ----- | ---------: | ---------: | -------: |
+| OLS   | 68,668.379 | 49,850.185 |    0.647 |
+| Ridge | 68,667.050 | 49,844.704 |    0.647 |
+| Lasso | 68,668.381 | 49,849.980 |    0.647 |
+
+### Tuned Model Comparison
+
+| Model         |       RMSE |        MAE | R² Score |
+| ------------- | ---------: | ---------: | -------: |
+| Ridge (Tuned) | 68,665.340 | 49,808.539 |    0.647 |
+| Lasso (Tuned) | 68,675.632 | 49,834.308 |    0.647 |
+
+**Best observed test result:** Tuned Ridge Regression, with an RMSE of approximately $68,665 and an MAE of approximately $49,809.
+
+The tuned Ridge model performed slightly better than the other evaluated models, although the improvement was small. Its R² score was approximately 0.647.
+
+## Key Takeaways
+
+- Compared ordinary linear regression with L1 and L2 regularization.
+- Practiced missing-value imputation, categorical encoding, feature engineering, and feature scaling.
+- Used cross-validation for hyperparameter tuning.
+- Evaluated regression models with multiple metrics and diagnostic plots.
+
+## Limitations
+
+- The models use linear regression approaches and may not capture all nonlinear relationships.
+- Performance depends on the dataset and the selected features.
+- The dataset's target values are capped at $500,001, which may affect predictions for higher-value houses.
+
+
+
+## Conclusion
+
+This project explored California house value prediction using OLS, Ridge, and Lasso regression models. Data preprocessing, interaction feature engineering, categorical encoding, feature scaling, and hyperparameter tuning were performed to improve model evaluation.
+
+Among the evaluated models, Tuned Ridge Regression achieved the best test results, with an RMSE of approximately $68,665, an MAE of approximately $49,809, and an R² score of 0.647. However, the improvement over the other models was relatively small.
+
+Overall, this project provided practical experience in regression modeling, model evaluation, cross-validation, and residual analysis. Further improvements could include more advanced feature engineering and nonlinear machine learning models.
